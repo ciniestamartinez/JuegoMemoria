@@ -4,9 +4,12 @@ class SelectImagesVC: UIViewController, UICollectionViewDataSource, UICollection
     
     @IBOutlet weak var cuadricula: UICollectionView!
     @IBOutlet weak var selectedImagesCounter: UILabel!
+    @IBOutlet weak var lifesCounter: UILabel!
     @IBOutlet weak var notice: UILabel!
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var retryButton: UIButton!
+    @IBOutlet weak var successNotice: UILabel!
+    @IBOutlet weak var failureNotice: UILabel!
     
     
     override func viewDidLoad() {
@@ -16,7 +19,9 @@ class SelectImagesVC: UIViewController, UICollectionViewDataSource, UICollection
         cuadricula.delegate = self
     }
     
-    var counter = 0 //Contador de imágenes seleccionadas
+    var imagecounter = 0 //Contador de imágenes seleccionadas
+    var lifeCounter = 5 //Contador de vidas
+    var successCounter = 0 //Contador de aciertos
     
     //Número de celdas
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -29,32 +34,55 @@ class SelectImagesVC: UIViewController, UICollectionViewDataSource, UICollection
         cell.imageCell.image = images[indexPath.row] //Pone cada imagen en cada celda
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if lifeCounter == 0{
+            return
+        }
+        if successCounter == 6{
+            return
+        }
+        
         let cell = collectionView.cellForItem(at: indexPath) as! cell
         print(indexPath.row)
         
         
-        for i in randomRumbers{
+        var success : Bool = false
+        for i in array6RandomNumbers{ //Comparar las imágenes
             if i == indexPath.row{
-               cell.isHidden = true //Esconder la imagen si se pincha
+                cell.isHidden = true //Esconder la imagen si se pincha
+                imagecounter += 1
+                successCounter += 1
+                success = true
+                print("Acierto")
+                successNotice.alpha = 1
+                failureNotice.alpha = 0
+                break //Interrumpir el bucle
+            }
+        }
+        if success == false{
+            failureNotice.alpha = 1
+            successNotice.alpha = 0
+            print("Fallo")
+            lifeCounter -= 1
+            let showLifes = String(lifeCounter) //Casting de Int a String
+            lifesCounter.text = showLifes
+            
+            if lifeCounter == 0{
+                notice.isHidden = false
+                notice.text = "Te has quedado sin vidas"
+                continueButton.isHidden = true
+                retryButton.alpha = 1
             }
         }
         
-        counter += 1
-        let showCounter = String(counter) //Casting de Int a String
+        let showCounter = String(imagecounter) //Casting de Int a String
         selectedImagesCounter.text = showCounter
         
-        if counter > 5{
+        if imagecounter > 5{
             notice.isHidden = false
-            notice.text = "Ya no puedes seleccionar más imágenes"
-        }
-        if counter > 6{
-            notice.isHidden = false
-            notice.text = "Te has pasado, tienes que volver a empezar"
-            continueButton.isHidden = true
-            retryButton.alpha = 1
-            /*sleep(3)
-            dismiss(animated: true, completion: nil)*/
+            notice.text = "Ya has seleccionado todas las imágenes"
         }
     }
 }

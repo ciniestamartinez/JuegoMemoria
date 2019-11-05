@@ -10,11 +10,11 @@
 		7F71451B2355AD730004D57D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F71451A2355AD730004D57D /* AppDelegate.swift */; };
 		7F71451D2355AD730004D57D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F71451C2355AD730004D57D /* ViewController.swift */; };
 		7F7145202355AD730004D57D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F71451E2355AD730004D57D /* Main.storyboard */; };
-		7F7145222355AD760004D57D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F7145212355AD760004D57D /* Assets.xcassets */; };
 		7F7145252355AD760004D57D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F7145232355AD760004D57D /* LaunchScreen.storyboard */; };
 		7F71452D2355CD600004D57D /* ViewImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F71452C2355CD600004D57D /* ViewImagesVC.swift */; };
 		7F71452F2355CFA60004D57D /* SelectImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F71452E2355CFA60004D57D /* SelectImagesVC.swift */; };
 		7F79D92923632285001FB1DD /* cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79D92823632285001FB1DD /* cell.swift */; };
+		7FA48CE12371AD19005AB02F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA48CE02371AD19005AB02F /* Assets.xcassets */; };
 		7FD9B2BE23684F7000FD0F2B /* ResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD9B2BD23684F7000FD0F2B /* ResultVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,12 +23,12 @@
 		7F71451A2355AD730004D57D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F71451C2355AD730004D57D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7F71451F2355AD730004D57D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7F7145212355AD760004D57D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F7145242355AD760004D57D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F7145262355AD760004D57D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F71452C2355CD600004D57D /* ViewImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewImagesVC.swift; sourceTree = "<group>"; };
 		7F71452E2355CFA60004D57D /* SelectImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImagesVC.swift; sourceTree = "<group>"; };
 		7F79D92823632285001FB1DD /* cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cell.swift; sourceTree = "<group>"; };
+		7FA48CE02371AD19005AB02F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FD9B2BD23684F7000FD0F2B /* ResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +65,7 @@
 				7F71451A2355AD730004D57D /* AppDelegate.swift */,
 				7F71451C2355AD730004D57D /* ViewController.swift */,
 				7F71451E2355AD730004D57D /* Main.storyboard */,
-				7F7145212355AD760004D57D /* Assets.xcassets */,
+				7FA48CE02371AD19005AB02F /* Assets.xcassets */,
 				7F7145232355AD760004D57D /* LaunchScreen.storyboard */,
 				7F7145262355AD760004D57D /* Info.plist */,
 				7F71452C2355CD600004D57D /* ViewImagesVC.swift */,
@@ -135,7 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F7145252355AD760004D57D /* LaunchScreen.storyboard in Resources */,
-				7F7145222355AD760004D57D /* Assets.xcassets in Resources */,
+				7FA48CE12371AD19005AB02F /* Assets.xcassets in Resources */,
 				7F7145202355AD730004D57D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
