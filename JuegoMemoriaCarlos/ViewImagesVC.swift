@@ -14,8 +14,8 @@ var randomRumbers = getRandomNumbers()
 
 func get6RandomNumbers() -> [Int]{
     var random6numbers = [Int] ()
-        for j in 0...5{
-          random6numbers.append(randomRumbers[j])
+        for i in 0...5{
+          random6numbers.append(randomRumbers[i])
         }
     return random6numbers
 }
@@ -29,21 +29,24 @@ class ViewImagesVC: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "wallpaper2.png")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bluebackground.png")!)
         showImage()
     }
     
-    var timerr = 7
+    var secondsTimer = 7
+    
+    var timeLevel : Float = 0
     
     func showImage(){
         var index = 0
-        Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true, block:
+        difficultyLevel()
+        Timer.scheduledTimer(withTimeInterval: TimeInterval(timeLevel), repeats: true, block:
             { timer in
                 if index < 6{
                     self.imagesToView.image = images[randomRumbers[index]]
                     index += 1 //Suma uno al índice cada vez que se recorre el Timer
-                    self.timerr -= 1
-                    let showTime = String(self.timerr) //Casting de Int a String
+                    self.secondsTimer -= 1
+                    let showTime = String(self.secondsTimer) //Casting de Int a String
                     self.timeCounter.text = showTime
                 }else{
                     self.performSegue(withIdentifier: "changeScreen", sender: nil) //Cuando acaban de verse las imágenes se cambia a la siguiente pantalla
@@ -51,8 +54,17 @@ class ViewImagesVC: UIViewController{
         })
     }
     
-    @IBAction func Back(_ sender: Any) {
-        dismiss(animated: true, completion: nil) //Cerrar pantalla
+    func difficultyLevel(){
+        let difficult: Int = Int(difficulty)
+        switch difficult {
+        case 0:
+            timeLevel = 2.5
+        case 1:
+            timeLevel = 1.5
+        case 2:
+            timeLevel = 0.7
+        default:
+            timeLevel = 1.5
+        }
     }
-    
 }

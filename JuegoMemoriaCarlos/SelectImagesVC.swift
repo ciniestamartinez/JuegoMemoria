@@ -7,14 +7,15 @@ class SelectImagesVC: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var lifesCounter: UILabel!
     @IBOutlet weak var notice: UILabel!
     @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var continueLabel: UILabel!
     @IBOutlet weak var retryButton: UIButton!
+    @IBOutlet weak var retryLabel: UILabel!
     @IBOutlet weak var successNotice: UILabel!
     @IBOutlet weak var failureNotice: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "wallpaper2.png")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bluebackground.png")!)
         cuadricula.dataSource = self
         cuadricula.delegate = self
     }
@@ -47,11 +48,12 @@ class SelectImagesVC: UIViewController, UICollectionViewDataSource, UICollection
         let cell = collectionView.cellForItem(at: indexPath) as! cell
         print(indexPath.row)
         
-        
         var success : Bool = false
         for i in array6RandomNumbers{ //Comparar las imágenes
             if i == indexPath.row{
-                cell.isHidden = true //Esconder la imagen si se pincha
+                UIView.animate(withDuration: 5, animations: {
+                    cell.isHidden = true //Esconder la imagen si se pincha
+                })
                 imagecounter += 1
                 successCounter += 1
                 success = true
@@ -73,7 +75,9 @@ class SelectImagesVC: UIViewController, UICollectionViewDataSource, UICollection
                 notice.isHidden = false
                 notice.text = "Te has quedado sin vidas"
                 continueButton.isHidden = true
+                continueLabel.isHidden = true
                 retryButton.alpha = 1
+                retryLabel.alpha = 1
             }
         }
         
@@ -81,6 +85,9 @@ class SelectImagesVC: UIViewController, UICollectionViewDataSource, UICollection
         selectedImagesCounter.text = showCounter
         
         if imagecounter > 5{
+            print("Todas acertadas")
+            continueButton.isHidden = false
+            continueLabel.isHidden = false
             notice.isHidden = false
             notice.text = "Ya has seleccionado todas las imágenes"
         }
