@@ -49,10 +49,11 @@ class SelectImagesVC: UIViewController, UICollectionViewDataSource, UICollection
         print(indexPath.row)
         
         var success : Bool = false
+        cell.alpha = 1
         for i in array6RandomNumbers{ //Comparar las imágenes
             if i == indexPath.row{
-                UIView.animate(withDuration: 5, animations: {
-                    cell.isHidden = true //Esconder la imagen si se pincha
+                UIView.animate(withDuration: 0.7, animations: {
+                    cell.alpha = 0 //Esconder la imagen si se pincha
                 })
                 imagecounter += 1
                 successCounter += 1
